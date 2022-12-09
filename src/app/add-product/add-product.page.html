@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Agregar Producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Nombre del producto</ion-label>
+      <ion-input [(ngModel)]="prodname" #addProdName required="true" color="primary" placeholder="Ingresar texto"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Precio del producto</ion-label>
+      <ion-input [(ngModel)]="prodprice" color="primary" inputmode="numeric" required="true" placeholder="Precio, omitir $"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Foto del producto</ion-label>
+      <ion-input [(ngModel)]="prodphoto" color="primary" required="true" placeholder="Ingresar link"></ion-input>
+    </ion-item>
+    <ion-button fill="outline" expand="block" (click)="addProduct()" >
+      <ion-icon slot="start" name="add-outline"></ion-icon>
+      Añadir producto
+      <ion-icon slot="end" name="add-outline"></ion-icon>
+
+    </ion-button>
+  </ion-list>
+</ion-content>

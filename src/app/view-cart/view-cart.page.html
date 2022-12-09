@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Carrito</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of cart.products; let i=index">
+      <ion-item>
+        <ion-thumbnail>
+          <ion-img class="rounded-photo" src="{{item.photo}}"></ion-img>
+        </ion-thumbnail>
+        <ion-label> {{item.name}} ({{item.quantity}})  {{(item.price*item.quantity)|currency}}</ion-label>
+      </ion-item>
+      <ion-item-options side="end" (ionSwipe)="deleteCartProduct(i)">
+        <ion-item-option expandable color="danger">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <ion-card>
+    <ion-label>
+      El total es: {{cart.total|currency}}
+    </ion-label>
+  </ion-card>
+</ion-content>
